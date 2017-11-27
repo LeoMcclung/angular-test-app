@@ -41,6 +41,7 @@ function inboxController() {
         "subject": "If we override the interface, we can get to the HTTP feed through the virtual EXE interface!",
         "read": false,
         "starred": false,
+        "selected": false,
         "labels": ["personal"]
     },
     {

@@ -6,33 +6,39 @@
       unread messages
     </p>
 
-    <button class="btn btn-default" ng-click="ctrl.selectAll($ctrl.mail)">
-      <i ng-if="(ctrl.totalSelected($ctrl.mail)==0)" class="glyphicon glyphicon-unchecked"></i>
+    <button class="btn btn-default" ng-if="(ctrl.totalSelected($ctrl.mail)==0)" ng-click="ctrl.selectAll($ctrl.mail)">
+      <i class="glyphicon glyphicon-unchecked"></i>
+    </button>
+    <button class="btn btn-default" ng-if="(ctrl.totalSelected($ctrl.mail)==$ctrl.mail.length)" ng-click="ctrl.selectNone($ctrl.mail)">
+      <i class="glyphicon glyphicon-ok"></i>
+    </button>
+    <button class="btn btn-default" ng-if="(ctrl.totalSelected($ctrl.mail)<$ctrl.mail.length && ctrl.totalSelected($ctrl.mail)>0)" ng-click="ctrl.selectAll($ctrl.mail)">
+      <i class="glyphicon glyphicon-minus"></i>
     </button>
 
-    <button class="btn btn-default" disabled="disabled">
+    <button class="btn btn-default" ng-click="ctrl.markRead($ctrl.mail)">
       Mark As Read
     </button>
 
-    <button class="btn btn-default" disabled="disabled">
+    <button class="btn btn-default" ng-click="ctrl.markUnread($ctrl.mail)">
       Mark As Unread
     </button>
 
-    <select class="form-control label-select" disabled="disabled">
+    <select class="form-control label-select">
       <option>Apply label</option>
       <option value="dev">dev</option>
       <option value="personal">personal</option>
       <option value="gschool">gschool</option>
     </select>
 
-    <select class="form-control label-select" disabled="disabled">
+    <select class="form-control label-select">
       <option>Remove label</option>
       <option value="dev">dev</option>
       <option value="personal">personal</option>
       <option value="gschool">gschool</option>
     </select>
 
-    <button class="btn btn-default" disabled="disabled">
+    <button class="btn btn-default">
       <i class="glyphicon glyphicon-trash"></i>
     </button>
   </div>
