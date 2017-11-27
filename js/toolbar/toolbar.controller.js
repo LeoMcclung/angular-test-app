@@ -37,16 +37,18 @@ function toolbar() {
     }
 
     vm.markRead = function(mail) {
-        console.log(mail)
         for(var i=0; i < mail.length; i++) {
-            console.log(mail[i].read)
-            mail[i].read = true;
+            if(mail[i].selected == true){
+                mail[i].read = true;
+            }
         }
     }
 
     vm.markUnread = function(mail) {
         for(var i= mail.length -1; i>= 0; i--){
-            mail[i].read = false;
+            if(mail[i].selected == true){
+                mail[i].read = false;
+            }
         }
     }
 }
