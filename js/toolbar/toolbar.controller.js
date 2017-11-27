@@ -51,4 +51,31 @@ function toolbar() {
             }
         }
     }
+
+    vm.removeMessages = function(mail) {
+        for(var i= mail.length -1; i>=0; i--){
+            if(mail[i].selected == true){
+
+            }
+        }
+    }
+
+    vm.allLabels = [
+        {
+            "id": 1,
+            "label": "dev"
+        },
+        {
+            "id": 2,
+            "label": "gschool"
+        },
+        {
+            "id": 3,
+            "label": "personal"
+        }
+    ]
+
+    vm.changeLabels = function(selected){
+        console.log(selected);       
+    }
 }
