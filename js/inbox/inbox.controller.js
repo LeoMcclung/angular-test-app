@@ -69,4 +69,12 @@ function inboxController() {
         "labels": []
     }
     ]
+
+    vm.starMessage = function(mail){
+        mail.starred = true;
+    }
+
+    vm.unStar = function(mail){
+        mail.starred = false;
+    }
 }

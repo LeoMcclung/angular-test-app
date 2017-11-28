@@ -8,10 +8,10 @@
                         <input type="checkbox" ng-model="mail.selected"/>
                     </div>
                     <div class="col-xs-2" ng-if="mail.starred == false">
-                        <i class="glyphicon glyphicon-star-empty" ng-click="mail.starred = true"></i>
+                        <i class="glyphicon glyphicon-star-empty" ng-click="ctrl.starMessage(mail)"></i>
                     </div>
-                    <div class="col-xs-2" ng-if="mail.starred == true">
-                        <a class="glyphicon glyphicon-star" ng-click="mail.starred = false"></a>
+                    <div class="col-xs-2" ng-if="mail.starred == true" ng-click="ctrl.unStar(mail)">
+                        <a class="glyphicon glyphicon-star"></a>
                     </div>
                 </div>
             </div>
@@ -30,10 +30,10 @@
                         <input type="checkbox" ng-model="mail.selected"/>
                     </div>
                     <div class="col-xs-2" ng-if="mail.starred == false">
-                        <i class="glyphicon glyphicon-star-empty" ng-click="mail.starred = true"></i>
+                        <i class="glyphicon glyphicon-star-empty" ng-click="ctrl.starMessage(mail)"></i>
                     </div>
                     <div class="col-xs-2" ng-if="mail.starred == true">
-                        <i class="glyphicon glyphicon-star" ng-click="mail.starred = false"></i>
+                        <i class="glyphicon glyphicon-star" ng-click="ctrl.unStar(mail)"></i>
                     </div>
                 </div>
             </div>
