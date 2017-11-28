@@ -2,7 +2,7 @@
   <div class="row toolbar">
     <div class="col-md-12">
       <p class="pull-right">
-        <span class="badge badge">4</span> unread messages
+        <span class="badge badge">{{ctrl.totalUnread($ctrl.mail)}}</span> unread messages
       </p>
 
       <div ng-if="(ctrl.totalSelected($ctrl.mail)==0)">
@@ -68,18 +68,15 @@
           Mark As Unread
         </button>
 
-        <select class="form-control label-select" ng-model="labels" ng-options="name.label as name.label for name in ctrl.allLabels track by name.id" ng-change="ctrl.changeLabels(labels)">
+        <select class="form-control label-select" ng-model="labels" ng-options="name.label as name.label for name in ctrl.allLabels track by name.id" ng-change="ctrl.changeLabels(labels, $ctrl.mail)">
           <option value="">Apply label</option>
         </select>
 
-        <select class="form-control label-select">
-          <option>Remove label</option>
-          <option value="dev">dev</option>
-          <option value="personal">personal</option>
-          <option value="gschool">gschool</option>
+        <select class="form-control label-select" ng-model="labelsR" ng-options="name.label as name.label for name in ctrl.allLabels track by name.id" ng-change="ctrl.removeLabels(labelsR, $ctrl.mail)">
+          <option value="">Remove label</option>
         </select>
 
-        <button class="btn btn-default" ng-click="ctrl.removeMessage($ctrl.mail)">
+        <button class="btn btn-default" ng-click="ctrl.removeMessages($ctrl.mail)">
           <i class="glyphicon glyphicon-trash"></i>
         </button>
       </div>

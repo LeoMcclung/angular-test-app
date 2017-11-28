@@ -26,6 +26,16 @@ function toolbar() {
         }
     }
 
+    vm.totalUnread = function(mail){
+        var count =0
+        for(var i=0; i< mail.length; i++){
+            if(mail[i].read == false){
+                count++
+            }
+        }
+        return count
+    }
+    
     vm.totalRead = function(mail) {
         var count = 0
         for(var i=0; i< mail.length; i++){
@@ -53,12 +63,27 @@ function toolbar() {
     }
 
     vm.removeMessages = function(mail) {
-        for(var i= mail.length -1; i>=0; i--){
+        
+        for(var i=mail.length -1; i>= 0; i--){
+            
             if(mail[i].selected == true){
-
+                console.log(mail[i])
+                mail.splice(i, 1)
             }
         }
     }
+
+    // vm.removeMessages = function(mail) {
+        
+    //     for(var i=0; i< mail.length; i++){
+            
+    //         if(mail[i].selected == true){
+    //             console.log(mail[i])
+    //             mail.splice(i, 1)
+    //             return vm.removeMessages(mail)
+    //         }
+    //     }
+    // }
 
     vm.allLabels = [
         {
@@ -75,7 +100,38 @@ function toolbar() {
         }
     ]
 
-    vm.changeLabels = function(selected){
-        console.log(selected);       
+    vm.changeLabels = function(selected, mail){
+        console.log(selected);
+        
+        for(var i=0; i< mail.length; i++){
+            var arr = mail[i].labels
+            console.log(arr)
+
+            if(mail[i].selected == true){
+                if(arr.includes(selected) == false){
+                    arr.push(selected)                   
+                }
+
+            }
+            
+        }
+    }
+
+    vm.removeLabels = function(selected, mail){
+        console.log(selected);
+        
+        for(var i=0; i< mail.length; i++){
+            var arr = mail[i].labels
+            console.log(arr)
+
+            if(mail[i].selected == true){
+                if(arr.includes(selected) == true){
+                    var labelIndex = arr.indexOf(selected)
+                    arr.splice(labelIndex, 1)             
+                }
+
+            }
+            
+        }
     }
 }
