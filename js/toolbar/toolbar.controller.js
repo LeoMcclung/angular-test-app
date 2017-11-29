@@ -13,6 +13,7 @@ function toolbar() {
     vm.totalSelected = function(mail) {
         var count = 0
         for (var i = 0; i < mail.length; i++) {
+            // console.log(mail[i].selected)
             if(mail[i].selected == true){
                 count++
             }
@@ -25,6 +26,15 @@ function toolbar() {
             mail[i].selected = false;          
         }
     }
+
+    // vm.getMessageIds = function(mail){
+    //     for(var i=0; i<mail.length; i++){
+    //         if(mail[i].selected == true){
+    //             console.log(mail[i].id)
+    //             return mail[i].id
+    //         }
+    //     }
+    // }
 
     vm.totalUnread = function(mail){
         var count =0
