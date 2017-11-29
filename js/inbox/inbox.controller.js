@@ -11,14 +11,20 @@ function inboxController($http) {
     
 
     
-    vm.starMessage = function(mail){
-        console.log(mail)
-        mail.starred = true;
+    vm.starMessage = function(messageId, ifStarred){
+        let data = {
+            "messageIds": [messageId],
+            "command": "star",
+            "star": ifStarred
+        }
+        $http.patch('http://localhost:8082/api/messages', data).then(() => {
+            console.log('patched bitch')
+        })
     }
 
-    vm.unStar = function(mail){
-        mail.starred = false;
-    }
+    // vm.unStar = function(mail){
+    //     mail.starred = false;
+    // }
 }
 
 
