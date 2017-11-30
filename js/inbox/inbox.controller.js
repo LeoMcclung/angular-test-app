@@ -10,7 +10,7 @@ function inboxController($http, $interval) {
             // console.log(response)
             vm.mail = response.data['_embedded'].messages;
         })
-    }, 1000)
+    }, 5000)
 
     vm.starMessage = function (messageId, ifStarred) {
         let data = {
