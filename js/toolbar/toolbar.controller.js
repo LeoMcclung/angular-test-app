@@ -65,9 +65,9 @@ function toolbar($http) {
                     "command": "read",
                     "read": ifRead
                 }
-                $http.patch('http://localhost:8082/api/messages', data).then(() => {
+                $http.patch('https://crappy-inbox-app.herokuapp.com/api/messages', data).then(() => {
                     console.log('patched bitch')
-                    $http.get('http://localhost:8082/api/messages').then(function (response) {
+                    $http.get('https://crappy-inbox-app.herokuapp.com/api/messages').then(function (response) {
                         // console.log(response)
                         vm.mail = response.data['_embedded'].messages;
 
