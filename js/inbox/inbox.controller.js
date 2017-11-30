@@ -8,7 +8,7 @@ function inboxController($http, $interval) {
     $interval(function () {
         $http.get('https://crappy-inbox-app.herokuapp.com/api/messages').then(function (response) {
             // console.log(response)
-            vm.mail = response.data_embedded.messages;
+            vm.mail = response.data._embedded.messages;
         })
     }, 5000)
 
