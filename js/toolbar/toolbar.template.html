@@ -60,11 +60,11 @@
           <i class="glyphicon glyphicon-minus"></i>
         </button>
 
-        <button class="btn btn-default" ng-click="ctrl.markRead($ctrl.mail)">
+        <button class="btn btn-default" ng-click="ctrl.readMessage($ctrl.mail, mail.id, true)">
           Mark As Read
         </button>
 
-        <button class="btn btn-default" ng-click="ctrl.markUnread($ctrl.mail)">
+        <button class="btn btn-default" ng-click="ctrl.readMessage($ctrl.mail, mail.id, false)">
           Mark As Unread
         </button>
 

@@ -1,15 +1,16 @@
 angular.module('inboxTest').controller('inboxController', inboxController);
 
-function inboxController($http) {
+function inboxController($http, $interval) {
     const vm = this;
 
-    $http.get('http://localhost:8082/api/messages').then(function (response) {
-        console.log(response)
-        vm.mail = response.data['_embedded'].messages;
+    vm.mail = []
 
-    })
-
-
+    $interval(function () {
+        $http.get('http://localhost:8082/api/messages').then(function (response) {
+            // console.log(response)
+            vm.mail = response.data['_embedded'].messages;
+        })
+    }, 1000)
 
     vm.starMessage = function (messageId, ifStarred) {
         let data = {
@@ -20,7 +21,7 @@ function inboxController($http) {
         $http.patch('http://localhost:8082/api/messages', data).then(() => {
             console.log('patched bitch')
             $http.get('http://localhost:8082/api/messages').then(function (response) {
-                console.log(response)
+                // console.log(response)
                 vm.mail = response.data['_embedded'].messages;
 
             })
